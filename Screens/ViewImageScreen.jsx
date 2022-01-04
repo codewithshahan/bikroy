@@ -1,5 +1,13 @@
 import React from "react";
-import { Button, Image, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  Image,
+  Platform,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import colors from "../config/colors";
 
 const ViewImageScreen = () => {
@@ -29,7 +37,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   controlButtons: {
-    marginTop: 20,
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
+    padding: 5,
     flexDirection: "row",
     justifyContent: "space-between",
   },

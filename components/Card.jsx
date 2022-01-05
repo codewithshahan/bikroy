@@ -21,19 +21,18 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: "100%",
     borderRadius: 10,
-    height: 280,
-    marginTop: 40,
+    height: 260,
     backgroundColor: "#fff",
     overflow: "hidden",
   },
   image: {
     width: "100%",
-    height: 190,
+    height: 180,
   },
   title: {
     fontSize: 18,
     fontWeight: "500",
-    marginVertical: 5,
+    marginVertical: 2,
   },
   subTitle: {
     color: colors.secondary,
@@ -41,6 +40,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   content: {
-    padding: 10,
+    padding: 12,
   },
 });

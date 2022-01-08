@@ -5,7 +5,6 @@ import {
   Platform,
   StatusBar,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
 import colors from "../config/colors";

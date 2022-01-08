@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Image, TouchableHighlight } from "react-native";
 import AppText from "./AppText";
 import colors from "../config/colors";
-import Swipeable from "react-native-swipeable";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 
 const ListItem = ({
   image,
@@ -13,7 +13,7 @@ const ListItem = ({
   renderRighActions,
 }) => {
   return (
-    <Swipeable leftContent={renderRighActions}>
+    <Swipeable renderRightActions={renderRighActions}>
       <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
         <View style={styles.listContainer}>
           {image && <Image style={styles.image} source={image} />}

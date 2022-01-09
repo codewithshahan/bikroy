@@ -13,14 +13,9 @@ import AppText from "./AppText";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-const AppPicker = ({
-  icon,
-  items,
-  placeholder,
-  selectedItem,
-  onSelectItem,
-}) => {
+const AppPicker = ({ icon, items, placeholder }) => {
   const [modal, setModal] = useState(false);
+  const [selectedItem, onSelectItem] = useState();
 
   return (
     <>
@@ -34,9 +29,13 @@ const AppPicker = ({
               style={{ marginRight: 5 }}
             />
           )}
-          <View style={styles.text}>
-            <AppText>{selectedItem ? selectedItem.label : placeholder}</AppText>
-          </View>
+
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+
           <MaterialIcon
             name="chevron-down"
             color={defaultStyles.colors.medium}
@@ -77,6 +76,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: defaultStyles.colors.light,
   },
+
+  placeholder: {
+    color: defaultStyles.colors.medium,
+    flex: 1,
+  },
+
   text: {
     flex: 1,
   },

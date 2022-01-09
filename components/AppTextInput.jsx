@@ -1,7 +1,5 @@
 import React from "react";
-import { Platform, StyleSheet, TextInput, View } from "react-native";
-import Icon from "./Icon";
-import colors from "../config/colors";
+import { StyleSheet, TextInput, View } from "react-native";
 import defaultStyles from "../config/styles";
 import MaterialIcon from "@expo/vector-icons/MaterialCommunityIcons";
 
@@ -14,7 +12,11 @@ const AppTextInput = ({ icon, ...otherprops }) => {
         size={20}
         style={{ marginRight: 5 }}
       />
-      <TextInput style={defaultStyles.text} {...otherprops} />
+      <TextInput
+        placeholderTextColor={defaultStyles.colors.medium}
+        style={defaultStyles.text}
+        {...otherprops}
+      />
     </View>
   );
 };

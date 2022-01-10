@@ -1,11 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
+
 import AppText from "./AppText";
 
-const PickerItem = ({ onPress, label }) => {
+const PickerItem = ({ onPress, item }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <AppText>{label}</AppText>
+      <AppText>{item.label}</AppText>
     </TouchableOpacity>
   );
 };

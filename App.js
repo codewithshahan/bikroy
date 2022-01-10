@@ -10,9 +10,10 @@ import ListingEditScreen from "./Screens/ListingEditScreen";
 import ListingScreen from "./Screens/ListingScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import MessagesScreen from "./Screens/MessagesScreen";
+import RegisterScreen from "./Screens/RegisterScreen";
 import ViewImageScreen from "./Screens/ViewImageScreen";
 import WelcomeScreen from "./Screens/WelcomeScreen";
 
 export default function App() {
-  return <ListingEditScreen />;
+  return <AccountScreen />;
 }

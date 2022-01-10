@@ -17,5 +17,3 @@ const Form = ({ initialValues, onSubmit, validationSchema, children }) => {
 };
 
 export default Form;
-
-const styles = StyleSheet.create({});

@@ -1,8 +1,8 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+
 import Icon from "../components/Icon";
-import ItemSeparator from "../components/ItemSeparator";
-import ListItem from "../components/ListItem";
+import { ListItemSeparator, ListItem } from "../components/lists";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
@@ -34,7 +34,7 @@ const AccountScreen = () => {
         <FlatList
           data={lists}
           keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={ItemSeparator}
+          ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
               title={item.name}

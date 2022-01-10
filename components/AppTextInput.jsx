@@ -3,9 +3,9 @@ import { StyleSheet, TextInput, View } from "react-native";
 import defaultStyles from "../config/styles";
 import MaterialIcon from "@expo/vector-icons/MaterialCommunityIcons";
 
-const AppTextInput = ({ icon, ...otherprops }) => {
+const AppTextInput = ({ icon, width, ...otherprops }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       <MaterialIcon
         name={icon}
         color={defaultStyles.colors.medium}
@@ -25,7 +25,6 @@ export default AppTextInput;
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
     flexDirection: "row",
     padding: 15,
     borderRadius: 30,

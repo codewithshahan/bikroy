@@ -1,7 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import Card from "../components/Card";
-import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 
 const ListingScreen = () => {

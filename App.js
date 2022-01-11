@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
 import AppPicker from "./components/AppPicker";
 import AppTextInput from "./components/AppTextInput";
 import Screen from "./components/Screen";
@@ -10,10 +10,21 @@ import ListingEditScreen from "./Screens/ListingEditScreen";
 import ListingScreen from "./Screens/ListingScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import MessagesScreen from "./Screens/MessagesScreen";
+import PlayGroundScreen from "./Screens/PlayGroundScreen";
 import RegisterScreen from "./Screens/RegisterScreen";
 import ViewImageScreen from "./Screens/ViewImageScreen";
 import WelcomeScreen from "./Screens/WelcomeScreen";
+import ImageInput from "./components/ImageInput";
 
 export default function App() {
-  return <AccountScreen />;
+  const [imageUri, setImageUri] = useState();
+
+  return (
+    <Screen>
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => setImageUri(uri)}
+      />
+    </Screen>
+  );
 }

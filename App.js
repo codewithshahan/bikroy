@@ -15,16 +15,8 @@ import RegisterScreen from "./Screens/RegisterScreen";
 import ViewImageScreen from "./Screens/ViewImageScreen";
 import WelcomeScreen from "./Screens/WelcomeScreen";
 import ImageInput from "./components/ImageInput";
+import ImageInputList from "./components/ImageInputList";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState();
-
-  return (
-    <Screen>
-      <ImageInput
-        imageUri={imageUri}
-        onChangeImage={(uri) => setImageUri(uri)}
-      />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 }

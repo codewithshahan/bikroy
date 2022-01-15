@@ -1,18 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import colors from "../../config/colors";
+import { StyleSheet, Text, View } from "react-native";
 import AccountScreen from "../../Screens/AccountScreen";
 import MessagesScreen from "../../Screens/MessagesScreen";
 
 const AccountNavigator = () => {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: colors.light },
-        headerTintColor: colors.primary,
-      }}
-    >
+    <Stack.Navigator>
       <Stack.Screen name="Account" component={AccountScreen} />
       <Stack.Screen name="Messages" component={MessagesScreen} />
     </Stack.Navigator>
@@ -20,3 +15,5 @@ const AccountNavigator = () => {
 };
 
 export default AccountNavigator;
+
+const styles = StyleSheet.create({});

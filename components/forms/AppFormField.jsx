@@ -15,7 +15,6 @@ const AppFormField = ({ name, width = "100%", ...rest }) => {
         width={width}
         {...rest}
       />
-
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
   );

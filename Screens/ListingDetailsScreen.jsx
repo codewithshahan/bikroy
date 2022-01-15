@@ -13,13 +13,13 @@ const ListingDetailsScreen = ({ route }) => {
         <View style={styles.content}>
           <Text style={styles.title}>{listing.title}</Text>
           <Text style={styles.subtitle}>${listing.price}</Text>
-          <View style={styles.profile}>
-            <ListItem
-              image={require("../assets/mosh.jpg")}
-              title="Shahan Ahmed"
-              subTitle="5 Listings"
-            />
-          </View>
+        </View>
+        <View style={styles.profile}>
+          <ListItem
+            image={require("../assets/mosh.jpg")}
+            title="Shahan Ahmed"
+            subTitle="5 Listings"
+          />
         </View>
       </View>
     </ScrollView>
@@ -42,11 +42,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "500",
-    marginVertical: 5,
   },
   subtitle: {
     fontSize: 18,
     color: colors.secondary,
     fontWeight: "bold",
+    marginVertical: 5,
+  },
+  profile: {
+    marginVertical: 20,
   },
 });

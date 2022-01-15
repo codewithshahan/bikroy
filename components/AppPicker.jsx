@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
     backgroundColor: defaultStyles.colors.light,
+    marginVertical: 10,
   },
 
   placeholder: {

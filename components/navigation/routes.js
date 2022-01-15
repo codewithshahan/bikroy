@@ -1,5 +1,4 @@
-export default Object.freeze({
-  LISTING_DETAILS: "ListingDetails",
-  ACCOUNT_NAVIGATOR: "AccountNavigator",
-  LISTING_EDIT: "ListingEdit",
-});
+export default {
+  LISTING_EDIT: "Post",
+  LISTING_DETAIL: "ListingDetail",
+};

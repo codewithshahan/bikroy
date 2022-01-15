@@ -1,13 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import LoginScreen from "../../Screens/LoginScreen";
 import RegisterScreen from "../../Screens/RegisterScreen";
 import WelcomeScreen from "../../Screens/WelcomeScreen";
 
 const AuthNavigator = () => {
   const Stack = createNativeStackNavigator();
-
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -22,5 +20,3 @@ const AuthNavigator = () => {
 };
 
 export default AuthNavigator;
-
-const styles = StyleSheet.create({});

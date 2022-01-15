@@ -1,11 +1,23 @@
+<<<<<<< HEAD
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+=======
+import React, { useEffect, useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import * as Location from "expo-location";
+
+>>>>>>> a37c540f35014f42d3c8dbc670ab6e057ed2e0ab
 import { AppFormField, Form, SubmitButton } from "../components/forms";
 
 import * as Yup from "yup";
 import Screen from "../components/Screen";
 import AppFormPicker from "../components/forms/AppFormPicker";
+<<<<<<< HEAD
 import AppFormImagePicker from "../components/AppFormImagePicker";
+=======
+import FormImagePicker from "../components/FormImagePicker";
+import useLocation from "../components/useLocation";
+>>>>>>> a37c540f35014f42d3c8dbc670ab6e057ed2e0ab
 
 const categories = [
   {
@@ -73,6 +85,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListingEditScreen = () => {
+  const location = useLocation();
+
   return (
     <ScrollView>
       <Screen style={styles.screen}>
@@ -84,29 +98,51 @@ const ListingEditScreen = () => {
             description: "",
             images: [],
           }}
+<<<<<<< HEAD
           onSubmit={(values) => console.log(values)}
           validationSchema={validationSchema}
         >
           <AppFormImagePicker name="images" />
           <AppFormField name="title" placeholder="Title" maxLength={8} />
+=======
+          onSubmit={(values) => console.log(location)}
+          validationSchema={validationSchema}
+        >
+          <FormImagePicker name="images" />
+
+          <AppFormField name="title" placeholder="Title" maxLength={8} />
+
+>>>>>>> a37c540f35014f42d3c8dbc670ab6e057ed2e0ab
           <AppFormField
             name="price"
             placeholder="Price"
             width="35%"
             keyboardType="numeric"
           />
+<<<<<<< HEAD
+=======
+
+>>>>>>> a37c540f35014f42d3c8dbc670ab6e057ed2e0ab
           <AppFormPicker
             items={categories}
             placeholder="Category"
             name="category"
             width="50%"
           />
+<<<<<<< HEAD
+=======
+
+>>>>>>> a37c540f35014f42d3c8dbc670ab6e057ed2e0ab
           <AppFormField
             name="description"
             placeholder="Description"
             numberOfLines={3}
             maxLength={255}
           />
+<<<<<<< HEAD
+=======
+
+>>>>>>> a37c540f35014f42d3c8dbc670ab6e057ed2e0ab
           <SubmitButton title="Post" />
         </Form>
       </Screen>

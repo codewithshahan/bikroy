@@ -6,7 +6,7 @@ import { ListItemSeparator, ListItem } from "../components/lists";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
   const lists = [
     {
       id: 1,
@@ -19,6 +19,7 @@ const AccountScreen = () => {
       name: "My Messages",
       iconName: "email",
       backgroundColor: colors.secondary,
+      targetScreen: "Messages",
     },
   ];
 
@@ -44,6 +45,7 @@ const AccountScreen = () => {
                   backgroundColor={item.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />

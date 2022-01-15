@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import AppPicker from "./components/AppPicker";
 import AppTextInput from "./components/AppTextInput";
 import Screen from "./components/Screen";
@@ -13,7 +13,19 @@ import MessagesScreen from "./Screens/MessagesScreen";
 import RegisterScreen from "./Screens/RegisterScreen";
 import ViewImageScreen from "./Screens/ViewImageScreen";
 import WelcomeScreen from "./Screens/WelcomeScreen";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import colors from "./config/colors";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AuthNavigator from "./components/navigation/AuthNavigator";
+import navigationTheme from "./components/navigation/navigationTheme";
+import AppNavigator from "./components/navigation/AppNavigator";
 
 export default function App() {
-  return <AccountScreen />;
+  return (
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
+    </NavigationContainer>
+  );
 }

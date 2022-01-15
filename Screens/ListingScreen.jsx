@@ -1,9 +1,11 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
 import Card from "../components/Card";
+import routes from "../components/navigation/routes";
 import Screen from "../components/Screen";
+import colors from "../config/colors";
 
-const ListingScreen = () => {
+const ListingScreen = ({ navigation }) => {
   const lists = [
     {
       id: 1,
@@ -27,6 +29,7 @@ const ListingScreen = () => {
 
   return (
     <Screen style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor={colors.light} />
       <FlatList
         data={lists}
         keyExtractor={(item) => item.id.toString()}
@@ -36,6 +39,7 @@ const ListingScreen = () => {
               title={item.title}
               subTitle={"$" + item.price}
               image={item.image}
+              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
             />
           </View>
         )}

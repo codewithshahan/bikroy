@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { Alert, Image, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 import * as ImagePicker from "expo-image-picker";
@@ -35,7 +42,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={handlePress}>
+    <TouchableHighlight underlayColor={colors.light} onPress={handlePress}>
       <View style={styles.container}>
         {!imageUri && (
           <MaterialCommunityIcons
@@ -47,7 +54,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
 
         {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableHighlight>
   );
 };
 

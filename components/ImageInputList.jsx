@@ -12,8 +12,8 @@ const ImageInputList = ({ imageUris = [], onAddImage, onRemoveImage }) => {
         onContentSizeChange={() => ref.current.scrollToEnd()}
         horizontal
       >
-        {imageUris.map((imageUri) => (
-          <View key={imageUri} style={styles.image}>
+        {imageUris.map((imageUri, index) => (
+          <View key={imageUri + index} style={styles.image}>
             <ImageInput
               imageUri={imageUri}
               onChangeImage={() => onRemoveImage(imageUri)}

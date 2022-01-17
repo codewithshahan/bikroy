@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Platform,
-  View,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-} from "react-native";
+import { View, SafeAreaView, StyleSheet } from "react-native";
 
 const Screen = ({ children, style }) => {
   return (
@@ -19,7 +13,6 @@ export default Screen;
 
 const styles = StyleSheet.create({
   screen: {
-    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     flex: 1,
   },
   contain: {

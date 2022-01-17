@@ -20,9 +20,11 @@ const AppNavigator = () => {
         tabBarStyle: {
           borderColor: colors.light,
           borderTopWidth: 2,
-          borderRadius: 10,
+          padding: 5,
+          backgroundColor: colors.white,
         },
         tabBarLabelStyle: { bottom: 5 },
+        tabBarInactiveTintColor: colors.medium,
       }}
     >
       <Tab.Screen

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cloneElement, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { AppFormField, Form, SubmitButton } from "../components/forms";
 
@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import Screen from "../components/Screen";
 import AppFormPicker from "../components/forms/AppFormPicker";
 import AppFormImagePicker from "../components/AppFormImagePicker";
+import listings from "../api/listings";
+import UploadScreen from "./UploadScreen";
 
 const categories = [
   {
@@ -73,8 +75,31 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListingEditScreen = () => {
+  const [uploading, setUploading] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
+
+  const handleSubmit = async (listing, { resetForm }) => {
+    setUploading(0);
+    setUploadVisible(true);
+    const response = await listings.addListing({ ...listing }, (values) =>
+      setUploading(values)
+    );
+
+    if (!response.ok) {
+      setUploadVisible(false);
+      return alert("Couldn't Save the List");
+    }
+
+    resetForm();
+  };
+
   return (
     <ScrollView>
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        visible={uploadVisible}
+        value={uploading}
+      />
       <Screen style={styles.screen}>
         <Form
           initialValues={{
@@ -84,11 +109,11 @@ const ListingEditScreen = () => {
             description: "",
             images: [],
           }}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={handleSubmit}
           validationSchema={validationSchema}
         >
           <AppFormImagePicker name="images" />
-          <AppFormField name="title" placeholder="Title" maxLength={8} />
+          <AppFormField name="title" placeholder="Title" maxLength={48} />
           <AppFormField
             name="price"
             placeholder="Price"

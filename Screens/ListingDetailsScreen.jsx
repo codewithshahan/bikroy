@@ -9,7 +9,7 @@ const ListingDetailsScreen = ({ route }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Image source={listing.image} style={styles.image} />
+        <Image source={listing.images} style={styles.image} />
         <View style={styles.content}>
           <Text style={styles.title}>{listing.title}</Text>
           <Text style={styles.subtitle}>${listing.price}</Text>
@@ -18,7 +18,7 @@ const ListingDetailsScreen = ({ route }) => {
           <ListItem
             image={require("../assets/mosh.jpg")}
             title="Shahan Ahmed"
-            subTitle="5 Listings"
+            subTitle="26 Listings"
           />
         </View>
       </View>

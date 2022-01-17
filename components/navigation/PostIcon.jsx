@@ -1,11 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../../config/colors";
 
 const PostIcon = ({ onPress }) => {
   return (
-    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <MaterialCommunityIcons
           name="plus-circle"
@@ -13,7 +19,7 @@ const PostIcon = ({ onPress }) => {
           size={40}
         />
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 
@@ -28,7 +34,7 @@ const styles = StyleSheet.create({
     borderColor: colors.light,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 7,
+    borderWidth: 4,
     bottom: 15,
   },
 });

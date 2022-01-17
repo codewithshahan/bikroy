@@ -1,44 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
 import Card from "../components/Card";
 import routes from "../components/navigation/routes";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
+import ActivityIndicator from "../components/ActivityIndicator";
+
+import useApi from "../hooks/useApi";
+import Button from "../components/AppButton";
+import AppText from "../components/AppText";
+import listingsApi from "../api/listings";
 
 const ListingScreen = ({ navigation }) => {
-  const lists = [
-    {
-      id: 1,
-      title: "Red Jacker for Sale",
-      price: 100,
-      image: require("../assets/jacket.jpg"),
-    },
-    {
-      id: 2,
-      title: "Couch for Sale!",
-      price: 1000,
-      image: require("../assets/couch.jpg"),
-    },
-    {
-      id: 3,
-      title: "Mosh for Sale!",
-      price: 20,
-      image: require("../assets/mosh.jpg"),
-    },
-  ];
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(listingsApi.getListings);
+
+  useEffect(() => {
+    loadListings();
+  }, []);
 
   return (
     <Screen style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={colors.light} />
+      {error && (
+        <>
+          <AppText>Couldn't find the listings</AppText>
+          <Button onPress={request} title="Retry" />
+        </>
+      )}
+      {loading && <ActivityIndicator visible={loading} />}
       <FlatList
-        data={lists}
+        data={listings}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Card
               title={item.title}
               subTitle={"$" + item.price}
-              image={item.image}
+              imageUri={item.images[0].url}
               onPress={() => navigation.navigate(routes.LISTING_DETAIL, item)}
             />
           </View>
@@ -52,7 +55,7 @@ export default ListingScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f8f4f4",
+    backgroundColor: colors.light,
   },
   card: {
     padding: 10,

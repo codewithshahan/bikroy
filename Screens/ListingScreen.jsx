@@ -29,7 +29,7 @@ const ListingScreen = ({ navigation }) => {
       {error && (
         <>
           <AppText>Couldn't find the listings</AppText>
-          <Button onPress={request} title="Retry" />
+          <Button onPress={() => loadListings()} title="Retry" />
         </>
       )}
       {loading && <ActivityIndicator visible={loading} />}

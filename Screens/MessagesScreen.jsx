@@ -13,13 +13,13 @@ const MessagesScreen = () => {
     {
       id: 1,
       title: "Hey Whats Up",
-      image: require("../assets/mosh.jpg"),
+      image: require("../assets/shahan.png"),
       description: "I want to connect with you for my project!",
     },
     {
       id: 2,
       title: "Paid 500 Dollars",
-      image: require("../assets/logo-red.png"),
+      image: require("../assets/mosh.jpg"),
       description: "I want to !",
     },
   ];
@@ -44,7 +44,7 @@ const MessagesScreen = () => {
             {
               id: 2,
               title: "Paid 500 Dollars",
-              image: require("../assets/logo-red.png"),
+              image: require("../assets/mosh.jpg"),
               description: "I want to connect with ",
             },
           ])

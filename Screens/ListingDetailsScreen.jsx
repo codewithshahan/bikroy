@@ -1,55 +1,68 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard,
+  ScrollView,
+} from "react-native";
+import { Image } from "react-native-expo-image-cache";
 
-import ListItem from "../components/lists/ListItem";
 import colors from "../config/colors";
+import { ListItem } from "../components/lists";
+import ContactSellerForm from "../components/ContactSellerForm";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-const ListingDetailsScreen = ({ route }) => {
-  const listing = route.params;
+import rootNavigation from "../components/navigation/rootNavigation";
+
+export default function ListingDetailsScreen({ route: { params: listing } }) {
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <Image source={listing.images} style={styles.image} />
-        <View style={styles.content}>
-          <Text style={styles.title}>{listing.title}</Text>
-          <Text style={styles.subtitle}>${listing.price}</Text>
-        </View>
-        <View style={styles.profile}>
-          <ListItem
-            image={require("../assets/mosh.jpg")}
-            title="Shahan Ahmed"
-            subTitle="26 Listings"
+      <KeyboardAvoidingView
+        behavior="position"
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+      >
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <Image
+            style={styles.image}
+            preview={{ uri: listing.images[0].thumbnailUrl }}
+            uri={listing.images[0].url}
+            tint="light"
           />
+          <View style={styles.detailsContainer}>
+            <Text style={styles.title}>{listing.title}</Text>
+            <Text style={styles.price}>${listing.price}</Text>
+            <TouchableWithoutFeedback
+              style={styles.profile}
+              onPress={() => rootNavigation.navigation("AccountNavigator")}
+            >
+              <ListItem
+                title="Shahan Chowdhury"
+                subTitle="5 Listings"
+                image={require("../assets/shahan.png")}
+              />
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+        <View style={styles.contact}>
+          <ContactSellerForm listing={listing} />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </ScrollView>
   );
-};
-
-export default ListingDetailsScreen;
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    width: "100%",
-    height: 300,
-  },
-  content: {
-    padding: 15,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "500",
-  },
-  subtitle: {
-    fontSize: 18,
-    color: colors.secondary,
-    fontWeight: "bold",
-    marginVertical: 5,
-  },
+  image: { height: 300, width: "100%" },
+  detailsContainer: { marginLeft: 15, marginVertical: 10, marginBottom: 20 },
+  title: { fontSize: 24, marginVertical: 10 },
+  price: { color: colors.secondary, fontSize: 18, fontWeight: "700" },
   profile: {
-    marginVertical: 20,
+    marginTop: 30,
+  },
+  contact: {
+    padding: 10,
   },
 });

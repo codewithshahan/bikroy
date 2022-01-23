@@ -1,15 +1,21 @@
 import React from "react";
-import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
+import { StyleSheet, TouchableHighlight, View } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 
 import AppText from "./AppText";
 import colors from "../config/colors";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-const Card = ({ imageUri, title, subTitle, onPress }) => {
+const Card = ({ imageUri, thumbnailUrl, title, subTitle, onPress }) => {
   return (
     <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
       <View style={styles.cardContainer}>
-        <Image style={styles.image} source={{ uri: imageUri }} />
+        <Image
+          style={styles.image}
+          uri={imageUri}
+          tint="light"
+          preview={{ uri: thumbnailUrl }}
+        />
+
         <View style={styles.content}>
           <AppText style={styles.title}>{title}</AppText>
           <AppText style={styles.subTitle}>{subTitle}</AppText>

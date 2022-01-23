@@ -31,7 +31,7 @@ const AccountScreen = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
       <ListItem
-        image={require("../assets/mosh.jpg")}
+        image={require("../assets/shahan.png")}
         title={user.name}
         subTitle={user.email}
       />

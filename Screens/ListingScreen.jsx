@@ -12,6 +12,8 @@ import AppText from "../components/AppText";
 import listingsApi from "../api/listings";
 
 const ListingScreen = ({ navigation }) => {
+  const [refresh, setRefresh] = useState(false);
+
   const {
     data: listings,
     error,
@@ -42,10 +44,13 @@ const ListingScreen = ({ navigation }) => {
               title={item.title}
               subTitle={"$" + item.price}
               imageUri={item.images[0].url}
+              thumbnailUrl={item.images[0].thumbnailUrl}
               onPress={() => navigation.navigate(routes.LISTING_DETAIL, item)}
             />
           </View>
         )}
+        refreshing={refresh}
+        onRefresh={() => loadListings()}
       />
     </Screen>
   );

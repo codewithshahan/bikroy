@@ -4,9 +4,16 @@ import { StyleSheet, Text, View } from "react-native";
 import colors from "../../config/colors";
 import AccountScreen from "../../Screens/AccountScreen";
 import MessagesScreen from "../../Screens/MessagesScreen";
+import * as Notifications from "expo-notifications";
+import rootNavigation from "./rootNavigation";
 
 const AccountNavigator = () => {
   const Stack = createNativeStackNavigator();
+
+  Notifications.addNotificationResponseReceivedListener(() => {
+    rootNavigation.navigation("Messages");
+  });
+
   return (
     <Stack.Navigator
       screenOptions={{

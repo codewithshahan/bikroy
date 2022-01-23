@@ -9,9 +9,12 @@ import FeedNavigator from "./FeedNavigator";
 import PostIcon from "./PostIcon";
 import routes from "./routes";
 import colors from "../../config/colors";
+import useNotifications from "../../hooks/useNotifications";
 
 const AppNavigator = () => {
   const Tab = createBottomTabNavigator();
+
+  useNotifications("AccountNavigator");
 
   return (
     <Tab.Navigator

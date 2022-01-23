@@ -9,6 +9,7 @@ import jwtDecode from "jwt-decode";
 import store from "./auth/store";
 import AppLoading from "expo-app-loading";
 import navigationTheme from "./components/navigation/navigationTheme";
+import { navigationRef } from "./components/navigation/rootNavigation";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -32,7 +33,7 @@ export default function App() {
   return (
     <Context.Provider value={{ user, setUser }}>
       <OfflineNotice />
-      <NavigationContainer theme={navigationTheme}>
+      <NavigationContainer ref={navigationRef} theme={navigationTheme}>
         {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </Context.Provider>

@@ -3,7 +3,7 @@ import store from "../auth/store";
 import cache from "../utils/cache";
 
 const apiClient = create({
-  baseURL: "https://donewithit-api.herokuapp.com/api",
+  baseURL: "http://192.168.43.55:9000/api",
 });
 
 apiClient.addAsyncRequestTransform(async (request) => {
